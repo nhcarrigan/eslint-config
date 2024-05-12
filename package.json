@@ -1,0 +1,43 @@
+{
+  "name": "@nhcarrigan/eslint-config",
+  "version": "3.2.0",
+  "description": "Global config for ESLint",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint test.js --max-warnings 0 -c index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/naomi-lgbt/eslint-config.git"
+  },
+  "engines": {
+    "node": "20",
+    "pnpm": "8"
+  },
+  "keywords": [
+    "eslint"
+  ],
+  "author": "Naomi Carrigan",
+  "license": "SEE LICENSE IN https://docs.nhcarrigan.com/#/license",
+  "bugs": {
+    "url": "https://github.com/naomi-lgbt/eslint-config/issues"
+  },
+  "homepage": "https://github.com/naomi-lgbt/eslint-config#readme",
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "5.62.0",
+    "@typescript-eslint/parser": "5.62.0",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-plugin-import": "2.29.1",
+    "eslint-plugin-jsdoc": "41.1.2",
+    "eslint-plugin-no-only-tests": "3.1.0",
+    "eslint-plugin-prettier": "5.1.3"
+  },
+  "peerDependencies": {
+    "eslint": ">=8"
+  },
+  "devDependencies": {
+    "@nhcarrigan/prettier-config": "1.0.1",
+    "eslint-plugin-deprecation": "2.0.0",
+    "prettier": "^3.0.2"
+  }
+}
