@@ -75,7 +75,7 @@ module.exports = {
     "import/no-unresolved": "allow",
     "import/no-self-import": "error",
     "import/no-anonymous-default-export": "warn",
-    "import/no-useless-oath-segments": "warn",
+    "import/no-useless-path-segments": "warn",
     "no-only-tests/no-only-tests": [
       "warn",
       {
