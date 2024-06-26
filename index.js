@@ -72,7 +72,7 @@ module.exports = {
       },
     ],
     // This is necessary due to the combination of TS and such
-    "import/no-unresolved": "allow",
+    "import/no-unresolved": "off",
     "import/no-self-import": "error",
     "import/no-anonymous-default-export": "warn",
     "import/no-useless-path-segments": "warn",
