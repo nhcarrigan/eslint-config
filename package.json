@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/naomi-lgbt/eslint-config.git"
+    "url": "git@codeberg.org:naomi-lgbt/eslint-config.git"
   },
   "engines": {
     "node": "20",
@@ -20,9 +20,9 @@
   "author": "Naomi Carrigan",
   "license": "SEE LICENSE IN https://docs.nhcarrigan.com/#/license",
   "bugs": {
-    "url": "https://github.com/naomi-lgbt/eslint-config/issues"
+    "url": "https://codeberg.org/naomi-lgbt/eslint-config/issues"
   },
-  "homepage": "https://github.com/naomi-lgbt/eslint-config#readme",
+  "homepage": "https://codeberg.org/naomi-lgbt/eslint-config",
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "5.62.0",
     "@typescript-eslint/parser": "5.62.0",
