@@ -79,7 +79,7 @@ module.exports = {
     "no-only-tests/no-only-tests": [
       "warn",
       {
-        block: ["test", "suite", "assert"],
+        block: ["test", "expect", "assert", "describe", "bench"],
         focus: ["only", "skip"],
       },
     ],
