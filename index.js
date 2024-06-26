@@ -71,6 +71,11 @@ module.exports = {
         },
       },
     ],
+    // This is necessary due to the combination of TS and such
+    "import/no-unresolved": "allow",
+    "import/no-self-import": "error",
+    "import/no-anonymous-default-export": "warn",
+    "import/no-useless-oath-segments": "warn",
     "no-only-tests/no-only-tests": [
       "warn",
       {
