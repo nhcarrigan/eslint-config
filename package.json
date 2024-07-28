@@ -1,10 +1,15 @@
 {
   "name": "@nhcarrigan/eslint-config",
-  "version": "3.3.3",
+  "version": "4.0.0-rc7",
   "description": "Global config for ESLint",
-  "main": "index.js",
+  "main": "prod/index.js",
+  "type": "module",
   "scripts": {
-    "test": "eslint test.js --max-warnings 0 -c index.js"
+    "prepublish": "pnpm format && pnpm test",
+    "build": "tsc",
+    "format": "pnpm build && eslint src test --max-warnings 0 --fix",
+    "lint": "pnpm build && eslint src test --max-warnings 0",
+    "test": "vitest run"
   },
   "repository": {
     "type": "git",
@@ -24,20 +29,33 @@
   },
   "homepage": "https://codeberg.org/naomi-lgbt/eslint-config",
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "5.62.0",
-    "@typescript-eslint/parser": "5.62.0",
+    "@eslint/compat": "1.1.1",
+    "@eslint/eslintrc": "3.1.0",
+    "@eslint/js": "9.7.0",
+    "@stylistic/eslint-plugin": "2.3.0",
+    "@typescript-eslint/eslint-plugin": "rc-v8",
+    "@typescript-eslint/parser": "rc-v8",
     "eslint-config-prettier": "9.1.0",
-    "eslint-plugin-deprecation": "2.0.0",
+    "eslint-plugin-deprecation": "3.0.0",
     "eslint-plugin-import": "2.29.1",
-    "eslint-plugin-jsdoc": "41.1.2",
+    "eslint-plugin-jsdoc": "48.8.3",
     "eslint-plugin-no-only-tests": "3.1.0",
-    "eslint-plugin-prettier": "5.1.3"
+    "eslint-plugin-prettier": "5.2.1",
+    "eslint-plugin-sort-keys-fix": "1.1.2",
+    "eslint-plugin-unicorn": "55.0.0",
+    "globals": "15.8.0"
   },
   "peerDependencies": {
-    "eslint": ">=8"
+    "eslint": ">=9",
+    "typescript": ">=5"
   },
   "devDependencies": {
-    "@nhcarrigan/prettier-config": "1.0.1",
-    "prettier": "^3.0.2"
+    "@nhcarrigan/prettier-config": "3.2.0",
+    "@nhcarrigan/typescript-config": "4.0.0",
+    "@types/eslint": "9.6.0",
+    "@types/node": "20.14.12",
+    "prettier": "^3.3.3",
+    "typescript": "5.5.4",
+    "vitest": "2.0.4"
   }
 }

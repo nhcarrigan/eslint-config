@@ -1,8 +1,7 @@
-test.js
 /.github/
 .prettierrc.json
 .gitattributes
-renovate.json
+/src/
 
 # Ignore packed files so that npm pack can be run locally
 *.tgz
