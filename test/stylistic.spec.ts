@@ -4,30 +4,18 @@
  * @author Naomi Carrigan
  */
 
-import { suite, assert, test } from "vitest";
+import { describe, expect, it } from "vitest";
 import { stylisticRules } from "../src/rules/stylistic.ts";
 
-suite("Stylistic Configs", () => {
-  test("should never be an error", () => {
+describe("stylistic configs", () => {
+  it("should never be an error", () => {
+    expect.assertions(65);
     const rules = Object.entries(stylisticRules);
     for (const [ name, rule ] of rules) {
-      if (Array.isArray(rule)) {
-        assert.include(
-          [ "off", "warn" ],
-          rule.at(0),
-          `${name} appears to be set to an error!`,
-        );
-        continue;
-      }
-      if (typeof rule === "string") {
-        assert.include(
-          [ "off", "warn" ],
-          rule,
-          `${name} appears to be set to an error!`,
-        );
-        continue;
-      }
-      assert.fail(`Could not determine rule type for ${name}!`);
+      expect(Array.isArray(rule)
+        ? rule.at(0)
+        : rule, `${name} appears to be set to an error!`).not.toBe("error");
+      continue;
     }
   });
 });

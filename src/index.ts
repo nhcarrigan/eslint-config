@@ -8,10 +8,10 @@ import { fixupPluginRules } from "@eslint/compat";
 import stylistic from "@stylistic/eslint-plugin";
 import tslint from "@typescript-eslint/eslint-plugin";
 import parser from "@typescript-eslint/parser";
+import vitest from "@vitest/eslint-plugin";
 import deprecation from "eslint-plugin-deprecation";
 import importPlugin from "eslint-plugin-import";
 import jsdoc from "eslint-plugin-jsdoc";
-import noOnlyTests from "eslint-plugin-no-only-tests";
 import sortKeysFix from "eslint-plugin-sort-keys-fix";
 import unicorn from "eslint-plugin-unicorn";
 import globals from "globals";
@@ -19,12 +19,12 @@ import { deprecationRules } from "./rules/deprecation.js";
 import { disabledEslintRules, eslintRules } from "./rules/eslint.js";
 import { importRules } from "./rules/import.js";
 import { jsdocRules } from "./rules/jsdoc.js";
-import { noOnlyTestsRules } from "./rules/noOnlyTests.js";
 import { sortKeysFixRules } from "./rules/sortKeysFix.js";
 import { stylisticRules } from "./rules/stylistic.js";
 import { typescriptEslintRules, typescriptEslintRulesWithTypes }
   from "./rules/typescriptEslint.js";
 import { unicornRules } from "./rules/unicorn.js";
+import { vitestRules } from "./rules/vitest.js";
 import type { ESLint, Linter } from "eslint";
 
 const config: Array<Linter.Config> = [
@@ -49,24 +49,24 @@ const config: Array<Linter.Config> = [
       "deprecation":        fixupPluginRules(deprecation),
       "import":             fixupPluginRules(importPlugin as ESLint.Plugin),
       "jsdoc":              jsdoc,
-      "no-only-tests":      noOnlyTests as ESLint.Plugin,
       "sort-keys-fix":      sortKeysFix as ESLint.Plugin,
       // @ts-expect-error They haven't typedef this yet because it technically doesn't support eslint9
       "stylistic":          fixupPluginRules(stylistic),
       "unicorn":            unicorn,
+      "vitest":             vitest,
     },
     rules: {
       ...eslintRules,
       ...disabledEslintRules,
       ...typescriptEslintRules,
       ...typescriptEslintRulesWithTypes,
-      ...noOnlyTestsRules,
       ...importRules,
       ...jsdocRules,
       ...deprecationRules,
       ...stylisticRules,
       ...unicornRules,
       ...sortKeysFixRules,
+      ...vitestRules,
     },
   },
   {
@@ -86,17 +86,17 @@ const config: Array<Linter.Config> = [
       "@typescript-eslint": tslint,
       "import":             fixupPluginRules(importPlugin as ESLint.Plugin),
       "jsdoc":              jsdoc,
-      "no-only-tests":      noOnlyTests as ESLint.Plugin,
       "sort-keys-fix":      sortKeysFix as ESLint.Plugin,
       // @ts-expect-error They haven't typedef this yet because it technically doesn't support eslint9
       "stylistic":          fixupPluginRules(stylistic),
       "unicorn":            unicorn,
+      "vitest":             vitest,
     },
     rules: {
       ...eslintRules,
       ...disabledEslintRules,
       ...typescriptEslintRules,
-      ...noOnlyTestsRules,
+      ...vitestRules,
       ...importRules,
       ...jsdocRules,
       ...stylisticRules,
