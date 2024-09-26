@@ -35,18 +35,15 @@ import { vitestRules } from "./rules/vitest.js";
 import type { ESLint, Linter } from "eslint";
 
 const config: Array<Linter.Config> = [
+  // #region Typescript Config
   {
     files:           [ "src/**/*.ts" ],
     languageOptions: {
       globals: {
         ...globals.node,
-        ...globals.browser,
       },
       parser:        parser,
       parserOptions: {
-        ecmaFeatures: {
-          jsx: true,
-        },
         ecmaVersion:     11,
         project:         true,
         sourceType:      "module",
@@ -60,15 +57,10 @@ const config: Array<Linter.Config> = [
       "deprecation":        fixupPluginRules(deprecation),
       "import":             fixupPluginRules(importPlugin as ESLint.Plugin),
       "jsdoc":              jsdoc,
-      // @ts-expect-error I'm not sure what's going on here, to be honest.
-      "playwright":         fixupPluginRules(playwright),
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- No typedef means it's unsafe...
-      "react":              react,
       "sort-keys-fix":      sortKeysFix as ESLint.Plugin,
       // @ts-expect-error They haven't typedef this yet because it technically doesn't support eslint9
       "stylistic":          fixupPluginRules(stylistic),
       "unicorn":            unicorn,
-      "vitest":             vitest,
     },
     rules: {
       ...eslintRules,
@@ -81,11 +73,11 @@ const config: Array<Linter.Config> = [
       ...stylisticRules,
       ...unicornRules,
       ...sortKeysFixRules,
-      ...vitestRules,
-      ...playwrightRules,
-      ...reactRules,
     },
   },
+  // #endregion
+
+  // #region Vitest Config
   {
     files:           [ "test/**/*.spec.ts" ],
     languageOptions: {
@@ -119,11 +111,94 @@ const config: Array<Linter.Config> = [
       ...stylisticRules,
       ...unicornRules,
       ...sortKeysFixRules,
-      // Overrides
-      "complexity":                        "off",
-      "import/no-extraneous-dependencies": "error",
-      "max-lines-per-function":            "off",
-      "max-nested-callbacks":              "off",
+    },
+  },
+  // #endregion
+
+  // #region Playwright Config
+  {
+    files:           [ "e2e/**/*.spec.ts" ],
+    languageOptions: {
+      globals: {
+        ...globals.node,
+      },
+      parser:        parser,
+      parserOptions: {
+        ecmaVersion: 11,
+        sourceType:  "module",
+      },
+    },
+    plugins: {
+      // @ts-expect-error It's a config. It's just not the narrow config. SMH.
+      "@typescript-eslint": tslint,
+      "import":             fixupPluginRules(importPlugin as ESLint.Plugin),
+      "jsdoc":              jsdoc,
+      // @ts-expect-error I'm not actually sure what's going on here...
+      "playwright":         playwright,
+
+      "sort-keys-fix": sortKeysFix as ESLint.Plugin,
+      // @ts-expect-error They haven't typedef this yet because it technically doesn't support eslint9
+      "stylistic":     fixupPluginRules(stylistic),
+      "unicorn":       unicorn,
+    },
+    rules: {
+      ...eslintRules,
+      ...disabledEslintRules,
+      ...typescriptEslintRules,
+      ...playwrightRules,
+      ...importRules,
+      ...jsdocRules,
+      ...stylisticRules,
+      ...unicornRules,
+      ...sortKeysFixRules,
+    },
+  },
+  // #endregion
+
+  // #region React Config
+  {
+    files:           [ "src/**/*.tsx" ],
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+      },
+      parser:        parser,
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
+        ecmaVersion:     11,
+        project:         true,
+        sourceType:      "module",
+        tsconfigRootDir: process.cwd(),
+      },
+    },
+    plugins: {
+      // @ts-expect-error It's a config. It's just not the narrow config. SMH.
+      "@typescript-eslint": tslint,
+      // @ts-expect-error They haven't typedef this yet because it technically doesn't support eslint9
+      "deprecation":        fixupPluginRules(deprecation),
+      "import":             fixupPluginRules(importPlugin as ESLint.Plugin),
+      "jsdoc":              jsdoc,
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- No typedef means it's unsafe...
+      "react":              react,
+      "sort-keys-fix":      sortKeysFix as ESLint.Plugin,
+      // @ts-expect-error They haven't typedef this yet because it technically doesn't support eslint9
+      "stylistic":          fixupPluginRules(stylistic),
+      "unicorn":            unicorn,
+    },
+    rules: {
+      ...eslintRules,
+      ...disabledEslintRules,
+      ...typescriptEslintRules,
+      ...typescriptEslintRulesWithTypes,
+      ...importRules,
+      ...jsdocRules,
+      ...deprecationRules,
+      ...stylisticRules,
+      ...unicornRules,
+      ...sortKeysFixRules,
+      ...reactRules,
     },
   },
 ];

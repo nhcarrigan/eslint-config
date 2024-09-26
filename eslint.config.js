@@ -8,7 +8,10 @@ export default [
       "import/no-default-export": "off",
       "import/namespace": "off",
       "import/no-deprecated": "off",
-      "@typescript-eslint/consistent-type-assertions": "off"
+      "@typescript-eslint/consistent-type-assertions": "off",
+      "max-lines-per-function": "off",
+      "complexity": "off",
+      "max-nested-callbacks": "off"
     },
   },
 ];
