@@ -9,11 +9,11 @@ import { eslintRules } from "../src/rules/eslint.ts";
 import { importRules } from "../src/rules/import.js";
 import { jsdocRules } from "../src/rules/jsdoc.js";
 import { playwrightRules } from "../src/rules/playwright.ts";
+import { reactRules } from "../src/rules/react.js";
 import { stylisticRules } from "../src/rules/stylistic.ts";
 import { typescriptEslintRules } from "../src/rules/typescriptEslint.js";
 import { unicornRules } from "../src/rules/unicorn.js";
 import { vitestRules } from "../src/rules/vitest.js";
-import { reactRules } from "../prod/rules/react.js";
 
 describe("no rules should be turned off in", () => {
   it("eslint rules", () => {

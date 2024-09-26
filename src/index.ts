@@ -8,9 +8,11 @@ import { fixupPluginRules } from "@eslint/compat";
 import stylistic from "@stylistic/eslint-plugin";
 import tslint from "@typescript-eslint/eslint-plugin";
 import parser from "@typescript-eslint/parser";
+// eslint-disable-next-line import/default, import/no-named-as-default, import/no-named-as-default-member -- Issues with the import.
 import vitest from "@vitest/eslint-plugin";
 import deprecation from "eslint-plugin-deprecation";
 import importPlugin from "eslint-plugin-import";
+// eslint-disable-next-line import/default, import/no-named-as-default, import/no-named-as-default-member -- Issues with the import.
 import jsdoc from "eslint-plugin-jsdoc";
 import playwright from "eslint-plugin-playwright";
 // @ts-expect-error There's no typedef...
