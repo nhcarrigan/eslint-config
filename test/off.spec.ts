@@ -8,6 +8,7 @@ import { describe, expect, it } from "vitest";
 import { eslintRules } from "../src/rules/eslint.ts";
 import { importRules } from "../src/rules/import.js";
 import { jsdocRules } from "../src/rules/jsdoc.js";
+import { playwrightRules } from "../src/rules/playwright.ts";
 import { stylisticRules } from "../src/rules/stylistic.ts";
 import { typescriptEslintRules } from "../src/rules/typescriptEslint.js";
 import { unicornRules } from "../src/rules/unicorn.js";
@@ -37,6 +38,16 @@ describe("no rules should be turned off in", () => {
   it("jsdoc rules", () => {
     expect.assertions(43);
     const rules = Object.entries(jsdocRules);
+    for (const [ name, rule ] of rules) {
+      expect(Array.isArray(rule)
+        ? rule.at(0)
+        : rule, `${name} appears to be turned off - this project does not use any external configs, so all rules should be off by default.`).not.toBe("off");
+    }
+  });
+
+  it("playwright rules", () => {
+    expect.assertions(42);
+    const rules = Object.entries(playwrightRules);
     for (const [ name, rule ] of rules) {
       expect(Array.isArray(rule)
         ? rule.at(0)

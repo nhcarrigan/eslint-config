@@ -12,6 +12,7 @@ import vitest from "@vitest/eslint-plugin";
 import deprecation from "eslint-plugin-deprecation";
 import importPlugin from "eslint-plugin-import";
 import jsdoc from "eslint-plugin-jsdoc";
+import playwright from "eslint-plugin-playwright";
 import sortKeysFix from "eslint-plugin-sort-keys-fix";
 import unicorn from "eslint-plugin-unicorn";
 import globals from "globals";
@@ -19,6 +20,7 @@ import { deprecationRules } from "./rules/deprecation.js";
 import { disabledEslintRules, eslintRules } from "./rules/eslint.js";
 import { importRules } from "./rules/import.js";
 import { jsdocRules } from "./rules/jsdoc.js";
+import { playwrightRules } from "./rules/playwright.js";
 import { sortKeysFixRules } from "./rules/sortKeysFix.js";
 import { stylisticRules } from "./rules/stylistic.js";
 import { typescriptEslintRules, typescriptEslintRulesWithTypes }
@@ -49,6 +51,8 @@ const config: Array<Linter.Config> = [
       "deprecation":        fixupPluginRules(deprecation),
       "import":             fixupPluginRules(importPlugin as ESLint.Plugin),
       "jsdoc":              jsdoc,
+      // @ts-expect-error I'm not sure what's going on here, to be honest.
+      "playwright":         fixupPluginRules(playwright),
       "sort-keys-fix":      sortKeysFix as ESLint.Plugin,
       // @ts-expect-error They haven't typedef this yet because it technically doesn't support eslint9
       "stylistic":          fixupPluginRules(stylistic),
@@ -67,6 +71,7 @@ const config: Array<Linter.Config> = [
       ...unicornRules,
       ...sortKeysFixRules,
       ...vitestRules,
+      ...playwrightRules,
     },
   },
   {
