@@ -13,6 +13,7 @@ import { stylisticRules } from "../src/rules/stylistic.ts";
 import { typescriptEslintRules } from "../src/rules/typescriptEslint.js";
 import { unicornRules } from "../src/rules/unicorn.js";
 import { vitestRules } from "../src/rules/vitest.js";
+import { reactRules } from "../prod/rules/react.js";
 
 describe("no rules should be turned off in", () => {
   it("eslint rules", () => {
@@ -48,6 +49,16 @@ describe("no rules should be turned off in", () => {
   it("playwright rules", () => {
     expect.assertions(42);
     const rules = Object.entries(playwrightRules);
+    for (const [ name, rule ] of rules) {
+      expect(Array.isArray(rule)
+        ? rule.at(0)
+        : rule, `${name} appears to be turned off - this project does not use any external configs, so all rules should be off by default.`).not.toBe("off");
+    }
+  });
+
+  it("react rules", () => {
+    expect.assertions(70);
+    const rules = Object.entries(reactRules);
     for (const [ name, rule ] of rules) {
       expect(Array.isArray(rule)
         ? rule.at(0)

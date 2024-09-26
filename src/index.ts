@@ -13,6 +13,8 @@ import deprecation from "eslint-plugin-deprecation";
 import importPlugin from "eslint-plugin-import";
 import jsdoc from "eslint-plugin-jsdoc";
 import playwright from "eslint-plugin-playwright";
+// @ts-expect-error There's no typedef...
+import react from "eslint-plugin-react";
 import sortKeysFix from "eslint-plugin-sort-keys-fix";
 import unicorn from "eslint-plugin-unicorn";
 import globals from "globals";
@@ -21,6 +23,7 @@ import { disabledEslintRules, eslintRules } from "./rules/eslint.js";
 import { importRules } from "./rules/import.js";
 import { jsdocRules } from "./rules/jsdoc.js";
 import { playwrightRules } from "./rules/playwright.js";
+import { reactRules } from "./rules/react.js";
 import { sortKeysFixRules } from "./rules/sortKeysFix.js";
 import { stylisticRules } from "./rules/stylistic.js";
 import { typescriptEslintRules, typescriptEslintRulesWithTypes }
@@ -35,9 +38,13 @@ const config: Array<Linter.Config> = [
     languageOptions: {
       globals: {
         ...globals.node,
+        ...globals.browser,
       },
       parser:        parser,
       parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
         ecmaVersion:     11,
         project:         true,
         sourceType:      "module",
@@ -53,6 +60,8 @@ const config: Array<Linter.Config> = [
       "jsdoc":              jsdoc,
       // @ts-expect-error I'm not sure what's going on here, to be honest.
       "playwright":         fixupPluginRules(playwright),
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- No typedef means it's unsafe...
+      "react":              react,
       "sort-keys-fix":      sortKeysFix as ESLint.Plugin,
       // @ts-expect-error They haven't typedef this yet because it technically doesn't support eslint9
       "stylistic":          fixupPluginRules(stylistic),
@@ -72,6 +81,7 @@ const config: Array<Linter.Config> = [
       ...sortKeysFixRules,
       ...vitestRules,
       ...playwrightRules,
+      ...reactRules,
     },
   },
   {
