@@ -8,7 +8,7 @@ import type { Linter } from "eslint";
 
 export const vitestRules: Linter.RulesRecord = {
   "vitest/consistent-test-filename":
-    [ "warn", { pattern: /^[\da-z-]+\.spec\.ts$/ } ],
+    [ "warn", { pattern: /^[\da-z-]+\.spec\.ts$/i } ],
   "vitest/consistent-test-it":            "warn",
   "vitest/expect-expect":                 "warn",
   "vitest/max-nested-describe":           [ "warn", { max: 2 } ],

@@ -25,7 +25,7 @@ export const importRules: Linter.RulesRecord = {
   "import/no-empty-named-blocks":       "error",
   "import/no-extraneous-dependencies":  [
     "error",
-    { devDependencies: [ "**/*.test.js", "**/*.spec.js" ] },
+    { devDependencies: [ "**/*.spec.ts" ] },
   ],
   "import/no-import-module-exports":   [ "error" ],
   "import/no-mutable-exports":         "error",
