@@ -28,20 +28,20 @@ import NaomisConfig from "@nhcarrigan/eslint-config";
 export default [
   ...NaomisConfig,
   // Any overrides you need, such as:
-  //   {
-  //   rules: {
-  //     complexity: "off",
-  //     "max-lines-per-function": "off",
-  //     "max-statements": "off",
-  //     "jsdoc/require-file-overview": "off"
-  //   },
-  // },
-  // {
-  //   files: ["test/__mocks__/Database.mock.ts"],
-  //   rules: {
-  //     "require-await": "off"
-  //   }
-  // },
+   {
+   rules: {
+     complexity: "off",
+     "max-lines-per-function": "off",
+     "max-statements": "off",
+     "jsdoc/require-file-overview": "off"
+   },
+ },
+ {
+   files: ["test/__mocks__/Database.mock.ts"],
+   rules: {
+     "require-await": "off"
+   }
+ },
 ];
 ```
 
@@ -105,7 +105,7 @@ Before interacting with our community, please read our [Code of Conduct](CODE_OF
 
 ## License
 
-This software is licensed under our [global software license](https://docs.nhcarrigan.com/#/license).
+This software is licensed under our [global software license](https://docs.nhcarrigan.com/legal/license/).
 
 Copyright held by Naomi Carrigan.
 

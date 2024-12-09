@@ -1,4 +1,4 @@
-/.github/
+/.forgejo/
 .prettierrc.json
 .gitattributes
 /src/

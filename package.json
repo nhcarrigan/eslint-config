@@ -16,8 +16,8 @@
     "url": "git@codeberg.org:naomi-lgbt/eslint-config.git"
   },
   "engines": {
-    "node": "20",
-    "pnpm": "9"
+    "node": ">=22",
+    "pnpm": ">=9"
   },
   "keywords": [
     "eslint"
@@ -29,23 +29,21 @@
   },
   "homepage": "https://codeberg.org/naomi-lgbt/eslint-config",
   "dependencies": {
-    "@eslint/compat": "1.1.1",
-    "@eslint/eslintrc": "3.1.0",
-    "@eslint/js": "9.11.1",
-    "@stylistic/eslint-plugin": "2.8.0",
-    "@typescript-eslint/eslint-plugin": "8.7.0",
-    "@typescript-eslint/parser": "8.7.0",
-    "@vitest/eslint-plugin": "1.1.4",
-    "eslint-config-prettier": "9.1.0",
+    "@eslint/compat": "1.2.4",
+    "@eslint/eslintrc": "3.2.0",
+    "@eslint/js": "9.16.0",
+    "@stylistic/eslint-plugin": "2.12.0",
+    "@typescript-eslint/eslint-plugin": "8.17.0",
+    "@typescript-eslint/parser": "8.17.0",
+    "@vitest/eslint-plugin": "1.1.14",
     "eslint-plugin-deprecation": "3.0.0",
-    "eslint-plugin-import": "2.30.0",
-    "eslint-plugin-jsdoc": "50.2.5",
-    "eslint-plugin-playwright": "1.6.2",
-    "eslint-plugin-prettier": "5.2.1",
-    "eslint-plugin-react": "7.36.1",
+    "eslint-plugin-import": "2.31.0",
+    "eslint-plugin-jsdoc": "50.6.0",
+    "eslint-plugin-playwright": "2.1.0",
+    "eslint-plugin-react": "7.37.2",
     "eslint-plugin-sort-keys-fix": "1.1.2",
-    "eslint-plugin-unicorn": "55.0.0",
-    "globals": "15.9.0"
+    "eslint-plugin-unicorn": "56.0.1",
+    "globals": "15.13.0"
   },
   "peerDependencies": {
     "eslint": ">=9",
@@ -55,11 +53,10 @@
     "vitest": ">=2"
   },
   "devDependencies": {
-    "@nhcarrigan/prettier-config": "3.2.0",
     "@nhcarrigan/typescript-config": "4.0.0",
     "@types/eslint": "9.6.1",
-    "@types/node": "20.14.12",
-    "typescript": "5.6.2",
-    "vitest": "2.1.1"
+    "@types/node": "22.10.1",
+    "typescript": "5.7.2",
+    "vitest": "2.1.8"
   }
 }

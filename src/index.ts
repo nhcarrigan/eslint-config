@@ -8,14 +8,11 @@ import { fixupPluginRules } from "@eslint/compat";
 import stylistic from "@stylistic/eslint-plugin";
 import tslint from "@typescript-eslint/eslint-plugin";
 import parser from "@typescript-eslint/parser";
-// eslint-disable-next-line import/default, import/no-named-as-default, import/no-named-as-default-member -- Issues with the import.
 import vitest from "@vitest/eslint-plugin";
 import deprecation from "eslint-plugin-deprecation";
 import importPlugin from "eslint-plugin-import";
-// eslint-disable-next-line import/default, import/no-named-as-default, import/no-named-as-default-member -- Issues with the import.
 import jsdoc from "eslint-plugin-jsdoc";
 import playwright from "eslint-plugin-playwright";
-// @ts-expect-error There's no typedef...
 import react from "eslint-plugin-react";
 import sortKeysFix from "eslint-plugin-sort-keys-fix";
 import unicorn from "eslint-plugin-unicorn";
@@ -133,7 +130,6 @@ const config: Array<Linter.Config> = [
       "@typescript-eslint": tslint,
       "import":             fixupPluginRules(importPlugin as ESLint.Plugin),
       "jsdoc":              jsdoc,
-      // @ts-expect-error I'm not actually sure what's going on here...
       "playwright":         playwright,
 
       "sort-keys-fix": sortKeysFix as ESLint.Plugin,
@@ -180,8 +176,7 @@ const config: Array<Linter.Config> = [
       "deprecation":        fixupPluginRules(deprecation),
       "import":             fixupPluginRules(importPlugin as ESLint.Plugin),
       "jsdoc":              jsdoc,
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- No typedef means it's unsafe...
-      "react":              react,
+      "react":              react as ESLint.Plugin,
       "sort-keys-fix":      sortKeysFix as ESLint.Plugin,
       // @ts-expect-error They haven't typedef this yet because it technically doesn't support eslint9
       "stylistic":          fixupPluginRules(stylistic),
