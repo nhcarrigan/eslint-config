@@ -3,3 +3,6 @@
 
 # Ignore packed files so that npm pack can be run locally
 *.tgz
+
+# Sonarcloud
+.scannerwork
