@@ -10,7 +10,7 @@
     "format": "pnpm build && eslint src test --max-warnings 0 --fix",
     "lint": "pnpm build && eslint src test --max-warnings 0",
     "test": "vitest run",
-        "scan": "SONAR_TOKEN='op://Environment Variables - Development/SonarCloud/eslint-config' op run -- sonar-scanner -Dsonar.organization=nhcarrigan -Dsonar.projectKey=nhcarrigan_eslint-config -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io"
+    "scan": "SONAR_TOKEN='op://Environment Variables - Development/SonarCloud/eslint-config' op run -- sonar-scanner -Dsonar.organization=nhcarrigan -Dsonar.projectKey=nhcarrigan_eslint-config -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io"
   },
   "repository": {
     "type": "git",
@@ -30,6 +30,7 @@
   },
   "homepage": "https://codeberg.org/naomi-lgbt/eslint-config",
   "dependencies": {
+    "@eslint-community/eslint-plugin-eslint-comments": "4.4.1",
     "@eslint/compat": "1.2.4",
     "@eslint/eslintrc": "3.2.0",
     "@eslint/js": "9.16.0",

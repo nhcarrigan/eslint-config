@@ -7,3 +7,4 @@
 declare module "eslint-plugin-no-only-tests";
 declare module "eslint-plugin-import";
 declare module "eslint-plugin-sort-keys-fix";
+declare module "@eslint-community/eslint-plugin-eslint-comments";

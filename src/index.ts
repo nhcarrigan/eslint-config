@@ -5,6 +5,7 @@
  */
 
 import { fixupPluginRules } from "@eslint/compat";
+import comments from "@eslint-community/eslint-plugin-eslint-comments";
 import stylistic from "@stylistic/eslint-plugin";
 import tslint from "@typescript-eslint/eslint-plugin";
 import parser from "@typescript-eslint/parser";
@@ -17,6 +18,7 @@ import react from "eslint-plugin-react";
 import sortKeysFix from "eslint-plugin-sort-keys-fix";
 import unicorn from "eslint-plugin-unicorn";
 import globals from "globals";
+import { commentsRules } from "./rules/comments.js";
 import { deprecationRules } from "./rules/deprecation.js";
 import { disabledEslintRules, eslintRules } from "./rules/eslint.js";
 import { importRules } from "./rules/import.js";
@@ -50,6 +52,8 @@ const config: Array<Linter.Config> = [
     plugins: {
       // @ts-expect-error It's a config. It's just not the narrow config. SMH.
       "@typescript-eslint": tslint,
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- Not unsafe, just not typed.
+      "comments":           comments,
       // @ts-expect-error They haven't typedef this yet because it technically doesn't support eslint9
       "deprecation":        fixupPluginRules(deprecation),
       "import":             fixupPluginRules(importPlugin as ESLint.Plugin),
@@ -70,6 +74,7 @@ const config: Array<Linter.Config> = [
       ...stylisticRules,
       ...unicornRules,
       ...sortKeysFixRules,
+      ...commentsRules,
     },
   },
   // #endregion
@@ -90,6 +95,8 @@ const config: Array<Linter.Config> = [
     plugins: {
       // @ts-expect-error It's a config. It's just not the narrow config. SMH.
       "@typescript-eslint": tslint,
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- Not unsafe, just not typed.
+      "comments":           comments,
       "import":             fixupPluginRules(importPlugin as ESLint.Plugin),
       "jsdoc":              jsdoc,
       "sort-keys-fix":      sortKeysFix as ESLint.Plugin,
@@ -108,6 +115,7 @@ const config: Array<Linter.Config> = [
       ...stylisticRules,
       ...unicornRules,
       ...sortKeysFixRules,
+      ...commentsRules,
     },
   },
   // #endregion
@@ -128,14 +136,15 @@ const config: Array<Linter.Config> = [
     plugins: {
       // @ts-expect-error It's a config. It's just not the narrow config. SMH.
       "@typescript-eslint": tslint,
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- Not unsafe, just not typed.
+      "comments":           comments,
       "import":             fixupPluginRules(importPlugin as ESLint.Plugin),
       "jsdoc":              jsdoc,
       "playwright":         playwright,
-
-      "sort-keys-fix": sortKeysFix as ESLint.Plugin,
+      "sort-keys-fix":      sortKeysFix as ESLint.Plugin,
       // @ts-expect-error They haven't typedef this yet because it technically doesn't support eslint9
-      "stylistic":     fixupPluginRules(stylistic),
-      "unicorn":       unicorn,
+      "stylistic":          fixupPluginRules(stylistic),
+      "unicorn":            unicorn,
     },
     rules: {
       ...eslintRules,
@@ -147,6 +156,7 @@ const config: Array<Linter.Config> = [
       ...stylisticRules,
       ...unicornRules,
       ...sortKeysFixRules,
+      ...commentsRules,
     },
   },
   // #endregion
@@ -172,6 +182,8 @@ const config: Array<Linter.Config> = [
     plugins: {
       // @ts-expect-error It's a config. It's just not the narrow config. SMH.
       "@typescript-eslint": tslint,
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- Not unsafe, just not typed.
+      "comments":           comments,
       // @ts-expect-error They haven't typedef this yet because it technically doesn't support eslint9
       "deprecation":        fixupPluginRules(deprecation),
       "import":             fixupPluginRules(importPlugin as ESLint.Plugin),
@@ -194,6 +206,7 @@ const config: Array<Linter.Config> = [
       ...unicornRules,
       ...sortKeysFixRules,
       ...reactRules,
+      ...commentsRules,
     },
   },
 ];

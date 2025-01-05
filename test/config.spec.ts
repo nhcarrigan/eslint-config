@@ -6,6 +6,7 @@
 
 import { describe, expect, it } from "vitest";
 import config from "../src/index.ts";
+import { commentsRules } from "../src/rules/comments.ts";
 import { deprecationRules } from "../src/rules/deprecation.ts";
 import { eslintRules } from "../src/rules/eslint.ts";
 import { importRules } from "../src/rules/import.ts";
@@ -39,7 +40,7 @@ expect.extend({
     const pass = missingRules.length === 0 && mismatchedRules.length === 0;
 
     let message = "";
-    // eslint-disable-next-line no-negated-condition
+    // eslint-disable-next-line no-negated-condition -- This is a test.
     if (!pass) {
       message = `${message}Expected rules to contain all specified rules.\n`;
       if (missingRules.length > 0) {
@@ -121,13 +122,14 @@ const baseProperties = (
       ruleset?.rules,
       "missing typescript-eslint rules with types",
     ).toContainRules(typescriptEslintRulesWithTypes);
+  expect(ruleset?.rules, "missing comment rules").toContainRules(commentsRules);
 };
 // #endregion
 
 describe("global config", () => {
   // #region Typescript
   it("should apply the expected plugins for typescript", () => {
-    expect.assertions(26);
+    expect.assertions(27);
     const ruleset = config.find((rule) => {
       return rule?.files?.includes("src/**/*.ts");
     });
@@ -159,13 +161,13 @@ describe("global config", () => {
     expect(
       Object.keys(ruleset?.plugins ?? {}),
       "should not have extraneous plugins",
-    ).toHaveLength(7);
+    ).toHaveLength(8);
   });
   // #endregion
 
   // #region Vitest
   it("should apply the expected plugins for vitest files", () => {
-    expect.assertions(26);
+    expect.assertions(27);
     const ruleset = config.find((rule) => {
       return rule?.files?.includes("test/**/*.spec.ts");
     });
@@ -192,13 +194,13 @@ describe("global config", () => {
     expect(
       Object.keys(ruleset?.plugins ?? {}),
       "should not have extraneous plugins",
-    ).toHaveLength(7);
+    ).toHaveLength(8);
   });
   // #endregion
 
   // #region Playwright
   it("should apply the expected plugins for playwright", () => {
-    expect.assertions(26);
+    expect.assertions(27);
     const ruleset = config.find((rule) => {
       return rule?.files?.includes("e2e/**/*.spec.ts");
     });
@@ -228,13 +230,13 @@ describe("global config", () => {
     expect(
       Object.keys(ruleset?.plugins ?? {}),
       "should not have extraneous plugins",
-    ).toHaveLength(7);
+    ).toHaveLength(8);
   });
   // #endregion
 
   // #region React
   it("should apply the expected plugins for react", () => {
-    expect.assertions(26);
+    expect.assertions(27);
     const ruleset = config.find((rule) => {
       return rule?.files?.includes("src/**/*.tsx");
     });
@@ -262,7 +264,7 @@ describe("global config", () => {
     expect(
       Object.keys(ruleset?.plugins ?? {}),
       "should not have extraneous plugins",
-    ).toHaveLength(8);
+    ).toHaveLength(9);
   });
   // #endregion
 });
