@@ -33,19 +33,19 @@
     "@eslint-community/eslint-plugin-eslint-comments": "4.4.1",
     "@eslint/compat": "1.2.4",
     "@eslint/eslintrc": "3.2.0",
-    "@eslint/js": "9.16.0",
-    "@stylistic/eslint-plugin": "2.12.0",
-    "@typescript-eslint/eslint-plugin": "8.17.0",
-    "@typescript-eslint/parser": "8.17.0",
-    "@vitest/eslint-plugin": "1.1.14",
+    "@eslint/js": "9.17.0",
+    "@stylistic/eslint-plugin": "2.12.1",
+    "@typescript-eslint/eslint-plugin": "8.19.0",
+    "@typescript-eslint/parser": "8.19.0",
+    "@vitest/eslint-plugin": "1.1.24",
     "eslint-plugin-deprecation": "3.0.0",
     "eslint-plugin-import": "2.31.0",
-    "eslint-plugin-jsdoc": "50.6.0",
+    "eslint-plugin-jsdoc": "50.6.1",
     "eslint-plugin-playwright": "2.1.0",
-    "eslint-plugin-react": "7.37.2",
+    "eslint-plugin-react": "7.37.3",
     "eslint-plugin-sort-keys-fix": "1.1.2",
     "eslint-plugin-unicorn": "56.0.1",
-    "globals": "15.13.0"
+    "globals": "15.14.0"
   },
   "peerDependencies": {
     "eslint": ">=9",
@@ -57,7 +57,7 @@
   "devDependencies": {
     "@nhcarrigan/typescript-config": "4.0.0",
     "@types/eslint": "9.6.1",
-    "@types/node": "22.10.1",
+    "@types/node": "22.10.5",
     "typescript": "5.7.2",
     "vitest": "2.1.8"
   }
