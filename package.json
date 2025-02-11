@@ -1,6 +1,6 @@
 {
   "name": "@nhcarrigan/eslint-config",
-  "version": "5.1.0",
+  "version": "5.2.0",
   "description": "Global config for ESLint",
   "main": "prod/index.js",
   "type": "module",
