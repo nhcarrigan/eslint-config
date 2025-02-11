@@ -24,7 +24,6 @@ describe("eslint configs", () => {
       expect(Array.isArray(rule)
         ? rule.at(0)
         : rule, `${name} appears to be turned on - disabled rules should be explicitly turned off.`).toBe("off");
-      continue;
     }
   });
 });

@@ -93,7 +93,7 @@ All style changes should be proposed in our [chat server](https://chat.nhcarriga
 
 ## Feedback and Bugs
 
-If you have feedback or a bug report, please feel free to open a GitHub issue!
+If you have feedback or a bug report, please feel free to open an issue!
 
 ## Contributing
 
