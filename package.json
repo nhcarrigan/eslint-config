@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "prepublish": "pnpm format && pnpm test",
-    "build": "tsc",
+    "build": "rm -rf prod && tsc",
     "format": "pnpm build && eslint src test --max-warnings 0 --fix",
     "lint": "pnpm build && eslint src test --max-warnings 0",
     "test": "vitest run",

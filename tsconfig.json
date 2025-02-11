@@ -17,7 +17,9 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "rootDir": "src",
-    "outDir": "prod"
+    "outDir": "prod",
+    "sourceMap": true,
+    "declaration": true,
   },
   "exclude": ["./test", "vitest.config.ts"]
 }
