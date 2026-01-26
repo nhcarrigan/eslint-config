@@ -93,7 +93,7 @@ All style changes should be proposed in our [chat server](https://chat.nhcarriga
 
 ## Feedback and Bugs
 
-If you have feedback or a bug report, please feel free to open an issue!
+If you have feedback or a bug report, please [log a ticket on our forum](https://support.nhcarrigan.com).
 
 ## Contributing
 
